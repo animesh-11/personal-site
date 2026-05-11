@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animesh Kumar — Product Owner & Aspiring PM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:        #f7f5f0;
+      --bg2:       #efecea;
+      --surface:   #ffffff;
+      --surface2:  #f2f0eb;
+      --border:    #e0dbd3;
+      --border2:   #ccc7be;
+      --accent:    #1a3a5c;
+      --accent2:   #c8722a;
+      --accent3:   #2e7d5e;
+      --text:      #1a1a1a;
+      --text-muted:#5a5550;
+      --text-dim:  #9a948c;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body:    'Outfit', sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
+    ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 2px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(247,245,240,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s, box-shadow 0.3s;
+    }
+    nav.scrolled { padding: 14px 64px; box-shadow: 0 2px 24px rgba(0,0,0,0.07); }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent2); }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 2px; background: var(--accent2);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: #fff !important;
+      padding: 9px 22px !important;
+      border-radius: 6px !important;
+      font-size: 0.82rem !important;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--accent2) !important; color: #fff !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 64px 100px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+      background-size: 32px 32px;
+      opacity: 0.5;
+    }
+
+    .hero-deco {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: 26vw;
+      font-weight: 700;
+      color: var(--border);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+      z-index: 0;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      animation: heroIn 0.9s ease both;
+    }
+
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 22px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px; height: 2px;
+      background: var(--accent2);
+      border-radius: 1px;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(3.8rem, 8vw, 7.5rem);
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .hero-role {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 400;
+      color: var(--accent2);
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 40px;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    .hero-tagline strong { color: var(--text); font-weight: 500; }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px;
+      background: var(--accent); color: #fff;
+      font-weight: 600; font-size: 0.88rem;
+      text-decoration: none; border-radius: 6px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: #0e2a45; transform: translateY(-2px); }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px;
+      background: transparent; color: var(--accent);
+      font-weight: 500; font-size: 0.88rem;
+      text-decoration: none; border: 1.5px solid var(--border2);
+      border-radius: 6px; transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex; gap: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.6rem; font-weight: 700;
+      color: var(--accent); line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.78rem; color: var(--text-dim);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    /* ── SHARED ── */
+    section { padding: 100px 64px; }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent2);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-eyebrow::before { content:''; width:24px; height:2px; background:var(--accent2); border-radius:1px; }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 500px;
+    }
+
+    .inner { max-width: 1160px; margin: 0 auto; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start; }
+
+    .about-text p {
+      color: var(--text-muted); margin-bottom: 18px;
+      font-weight: 300; line-height: 1.85; font-size: 1rem;
+    }
+    .about-text p strong { color: var(--text); font-weight: 600; }
+
+    .about-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 20px;
+      background: var(--bg2); border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .about-card-stack { display: flex; flex-direction: column; gap: 16px; }
+    .about-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent2);
+      border-radius: 8px;
+      padding: 22px 24px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .about-card:nth-child(2) { border-left-color: var(--accent); }
+    .about-card:nth-child(3) { border-left-color: var(--accent3); }
+    .about-card:hover { transform: translateX(4px); box-shadow: 4px 0 20px rgba(0,0,0,0.06); }
+    .about-card-title {
+      font-family: var(--font-mono); font-size: 0.72rem;
+      color: var(--accent2); letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 8px; font-weight: 500;
+    }
+    .about-card p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; font-weight: 300; margin: 0; }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg); }
+
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+
+    .timeline { position: relative; padding-left: 44px; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 7px; top: 10px; bottom: 10px; width: 2px;
+      background: linear-gradient(to bottom, var(--accent2), var(--accent), var(--border));
+    }
+
+    .exp-item {
+      position: relative; margin-bottom: 40px;
+      padding: 30px 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    }
+    .exp-item:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateX(4px);
+      border-color: var(--border2);
+    }
+    .exp-item::before {
+      content: ''; position: absolute;
+      left: -38px; top: 34px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--surface); border: 2.5px solid var(--accent2);
+      box-shadow: 0 0 0 4px var(--bg);
+    }
+
+    .exp-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 4px; }
+
+    .exp-role {
+      font-family: var(--font-display); font-size: 1.4rem;
+      font-weight: 700; letter-spacing: -0.02em; color: var(--accent);
+    }
+
+    .exp-date {
+      font-family: var(--font-mono); font-size: 0.73rem;
+      color: var(--accent2);
+      background: rgba(200,114,42,0.08);
+      padding: 4px 12px; border-radius: 20px;
+      border: 1px solid rgba(200,114,42,0.2);
+      white-space: nowrap;
+    }
+
+    .exp-company {
+      font-size: 0.9rem; color: var(--accent3);
+      font-weight: 600; margin-bottom: 14px;
+    }
+
+    .exp-bullets { padding-left: 0; list-style: none; margin-bottom: 16px; }
+    .exp-bullets li {
+      position: relative; padding-left: 18px;
+      color: var(--text-muted); font-size: 0.93rem;
+      font-weight: 300; line-height: 1.7; margin-bottom: 7px;
+    }
+    .exp-bullets li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--accent2); font-size: 0.8rem;
+    }
+    .exp-bullets li strong { color: var(--text); font-weight: 600; }
+
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .exp-tag {
+      font-family: var(--font-mono); font-size: 0.7rem;
+      color: var(--text-dim); background: var(--bg2);
+      border: 1px solid var(--border); padding: 3px 10px; border-radius: 4px;
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    .skill-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px 24px;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .skill-card:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.07); transform: translateY(-4px); }
+
+    .skill-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+    .skill-card-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: var(--surface2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .skill-card-title { font-size: 0.85rem; font-weight: 600; color: var(--accent); }
+
+    .skill-rows { display: flex; flex-direction: column; gap: 13px; }
+    .skill-meta { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .skill-name { font-size: 0.86rem; color: var(--text-muted); }
+    .skill-pct { font-family: var(--font-mono); font-size: 0.73rem; color: var(--accent2); font-weight: 500; }
+    .skill-bar { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .skill-fill {
+      height: 100%; border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform-origin: left; animation: barIn 1.1s ease both;
+      animation-play-state: paused;
+    }
+    @keyframes barIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+    .competencies { margin-top: 52px; }
+    .comp-title {
+      font-family: var(--font-mono); font-size: 0.72rem;
+      color: var(--text-dim); letter-spacing: 0.15em; text-transform: uppercase;
+      text-align: center; margin-bottom: 18px;
+    }
+    .comp-pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .comp-pill {
+      font-size: 0.83rem; font-weight: 500;
+      padding: 8px 18px; border-radius: 6px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text-muted); cursor: default;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .comp-pill:hover { border-color: var(--accent); color: var(--accent); background: rgba(26,58,92,0.04); }
+
+    /* ── ACHIEVEMENTS ── */
+    #achievements { background: var(--bg); }
+
+    .ach-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+    .ach-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 26px 28px;
+      display: flex; gap: 18px; align-items: flex-start;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .ach-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateY(-3px); }
+    .ach-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .ach-title { font-weight: 600; font-size: 0.95rem; color: var(--accent); margin-bottom: 5px; }
+    .ach-body { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; line-height: 1.65; }
+
+    /* ── INITIATIVES ── */
+    #initiatives { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .init-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .init-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .init-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateY(-3px); }
+    .init-card-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .init-icon-box {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--surface2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+    }
+    .init-card-name { font-weight: 600; font-size: 1rem; color: var(--accent); }
+    .init-card-tag {
+      display: inline-block; font-family: var(--font-mono); font-size: 0.68rem;
+      color: var(--accent2); background: rgba(200,114,42,0.08);
+      border: 1px solid rgba(200,114,42,0.2); padding: 2px 8px; border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .init-card p { color: var(--text-muted); font-size: 0.9rem; font-weight: 300; line-height: 1.7; }
+
+    /* ── CERTIFICATIONS ── */
+    #certifications { background: var(--bg); }
+
+    .cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+    .cert-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px 20px; text-align: center;
+      transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    }
+    .cert-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-4px); border-color: var(--border2); }
+    .cert-icon { font-size: 2rem; margin-bottom: 12px; }
+    .cert-name { font-weight: 600; font-size: 0.9rem; color: var(--accent); margin-bottom: 6px; line-height: 1.4; }
+    .cert-issuer { font-family: var(--font-mono); font-size: 0.71rem; color: var(--accent3); }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    .edu-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px;
+      position: relative; overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .edu-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateY(-3px); }
+    .edu-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent);
+    }
+    .edu-card:nth-child(2)::before { background: var(--accent2); }
+    .edu-card:nth-child(3)::before { background: var(--accent3); }
+    .edu-degree { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--accent); margin-bottom: 6px; line-height: 1.3; }
+    .edu-school { font-size: 0.88rem; color: var(--text-muted); font-weight: 500; margin-bottom: 6px; }
+    .edu-year { font-family: var(--font-mono); font-size: 0.73rem; color: var(--text-dim); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg); }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+
+    .contact-links { display: flex; flex-direction: column; gap: 14px; margin-top: 36px; }
+
+    .contact-link {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 20px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 10px;
+      text-decoration: none; color: var(--text-muted);
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--text); transform: translateX(4px); box-shadow: 2px 0 16px rgba(0,0,0,0.06); }
+    .cl-icon {
+      width: 42px; height: 42px; border-radius: 8px;
+      background: var(--bg2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .cl-type { font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px; }
+    .cl-val { font-size: 0.9rem; font-weight: 500; }
+
+    .contact-form {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 40px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.05);
+    }
+    .form-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--accent); margin-bottom: 28px; }
+    .form-row { margin-bottom: 18px; }
+    .form-label { display: block; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 7px; }
+    .form-input, .form-textarea {
+      width: 100%; background: var(--bg); border: 1.5px solid var(--border);
+      border-radius: 8px; padding: 11px 16px;
+      color: var(--text); font-family: var(--font-body); font-size: 0.94rem;
+      transition: border-color 0.2s; outline: none;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%; padding: 13px;
+      background: var(--accent); color: #fff;
+      font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+      border: none; border-radius: 8px; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .form-submit:hover { background: var(--accent2); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 36px 64px; border-top: 1px solid var(--border);
+      background: var(--surface);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+    .footer-copy { font-family: var(--font-mono); font-size: 0.71rem; color: var(--text-dim); }
+    .footer-links { display: flex; gap: 22px; }
+    .footer-links a { font-size: 0.83rem; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent2); }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav { padding: 18px 32px; }
+      section { padding: 80px 32px; }
+      #hero { padding: 130px 32px 80px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-deco { display: none; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .cert-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .skills-grid, .edu-grid, .ach-grid, .init-grid { grid-template-columns: 1fr; }
+      .cert-grid { grid-template-columns: 1fr 1fr; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .exp-header { flex-direction: column; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">Animesh<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-deco">AK</div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Senior Manager · Business Analyst · Product Owner</div>
+      <h1 class="hero-name">Animesh<br>Kumar.</h1>
+      <p class="hero-role">Aspiring Product Manager</p>
+      <p class="hero-tagline">
+        <strong>14+ years</strong> of expertise spanning Product Ownership, Business Analysis,
+        Digital Transformation, and Solution Design — across Telecom, Fintech, and SaaS
+        for global tier-1 clients. Based in <strong>Bengaluru, India</strong>.
+      </p>
+      <div class="hero-actions">
+        <a href="#experience" class="btn-primary">View My Work →</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">14+</div><div class="stat-label">Years Experience</div></div>
+        <div><div class="stat-num">4</div><div class="stat-label">Certifications</div></div>
+        <div><div class="stat-num">3</div><div class="stat-label">Continents</div></div>
+        <div><div class="stat-num">Tier-1</div><div class="stat-label">Global Clients</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="inner">
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <div class="section-eyebrow">About Me</div>
+          <h2 class="section-title">Where business strategy meets technology delivery.</h2>
+          <p>
+            I'm an accomplished professional with <strong>14+ years of expertise</strong> spanning Product
+            Ownership, Business Consulting, Business Analysis, Digital Transformation, and Product
+            Management. I've delivered complex programmes for tier-1 telecoms, enterprise SaaS
+            companies, and global consulting firms across India, Europe, and South Africa.
+          </p>
+          <p>
+            Currently at <strong>Vodafone India Services (_VOIS)</strong> as Senior Manager – Business
+            Analyst, I own product roadmaps end-to-end, lead cross-functional teams, and collaborate
+            with global partners including <strong>Microsoft</strong> to bring innovative products to market —
+            often in record timeframes.
+          </p>
+          <p>
+            My north star is building products people genuinely value — grounded in <strong>data,
+            empathy, and strategic clarity</strong>. I'm channelling this into a full Product
+            Manager role where I can drive business outcomes at scale.
+          </p>
+          <div class="about-chips">
+            <span class="chip">📍 Bengaluru, India</span>
+            <span class="chip">🌍 Global Experience</span>
+            <span class="chip">⚡ Agile / Scrum (CSPO)</span>
+            <span class="chip">🏛️ MDI Gurgaon · KIIT</span>
+            <span class="chip">🤖 AI / LangChain POCs</span>
+          </div>
+        </div>
+
+        <div class="about-card-stack fade-in">
+          <div class="about-card">
+            <div class="about-card-title">What I Do</div>
+            <p>Define product vision, manage end-to-end roadmaps, write user stories, prioritise backlogs, and facilitate agile ceremonies — from discovery to global launch.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card-title">How I Think</div>
+            <p>Start with the customer problem. Map the business process. Validate with data. Align stakeholders. Ship fast, measure faster. I bring structure to ambiguity.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card-title">Where I'm Going</div>
+            <p>Transitioning into a full-stack Product Manager role — combining deep consulting experience, PO delivery track record, and a passion for AI-enabled, user-centric products.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="inner">
+      <div class="exp-header fade-in">
+        <div>
+          <div class="section-eyebrow">Career</div>
+          <h2 class="section-title">Work Experience</h2>
+        </div>
+        <p class="section-desc" style="margin-bottom:0; max-width:300px;">14 years of delivering impact across three continents.</p>
+      </div>
+
+      <div class="timeline fade-in">
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-role">Senior Manager – Business Analyst</div>
+            <div class="exp-date">Sep 2022 — Present</div>
+          </div>
+          <div class="exp-company">Vodafone India Services (_VOIS) · Bengaluru</div>
+          <ul class="exp-bullets">
+            <li><strong>Product Owner / Device Leasing:</strong> Delivered a customer-centric mobile device leasing platform reducing upfront costs by <strong>40%</strong> and driving a <strong>10% uplift</strong> in new customer acquisition across SME and Large enterprise segments.</li>
+            <li>Designed intuitive workflows that <strong>cut leasing application processing time by 25%</strong>, improving time-to-market significantly. Collaborated with Leasing & Logistics partners enabling <strong>30% faster approvals</strong>.</li>
+            <li><strong>Product Owner / Microsoft Teams Phone Mobile:</strong> Led end-to-end development and launch integrating mobile telephony into Microsoft Teams — delivered in a <strong>record 6 months</strong>. Achieved <strong>30% higher adoption</strong> in Week 1 with 10 enterprises onboarded pre-launch.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Product Ownership</span><span class="exp-tag">Roadmapping</span>
+            <span class="exp-tag">Microsoft Teams</span><span class="exp-tag">Device Leasing</span>
+            <span class="exp-tag">Stakeholder Mgmt</span><span class="exp-tag">Telecom</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-role">Associate Architect</div>
+            <div class="exp-date">Jan 2022 — Aug 2022</div>
+          </div>
+          <div class="exp-company">Virtusa Consulting Pvt. Ltd. · Bengaluru</div>
+          <ul class="exp-bullets">
+            <li><strong>Solution Design / Digital Transformation:</strong> Drove digital transformation of the customer acquisition journey introducing a new web channel with tailored online experiences and customer analytics.</li>
+            <li>Led new <strong>CX Design</strong> with React App pages, integration with Pega Marketing for <strong>Next Best Offer</strong> personalisation; designed APIs for multi-offer display and Direct Marketing campaign uploads.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Solution Design</span><span class="exp-tag">CX / UX Design</span>
+            <span class="exp-tag">Pega Marketing</span><span class="exp-tag">React</span><span class="exp-tag">API Design</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-role">Associate Business Consultant</div>
+            <div class="exp-date">Apr 2018 — Jan 2022</div>
+          </div>
+          <div class="exp-company">Tech Mahindra Ltd. · Bengaluru & Canada</div>
+          <ul class="exp-bullets">
+            <li><strong>Business Analysis:</strong> End-to-end design, development, and country launches of SIP-based products across Europe and South Asia for a tier-1 telecom client with OSS/BSS components; participated in RFP and vendor comparison.</li>
+            <li><strong>Product Owner / Cloud Cyber Security:</strong> Spearheaded end-to-end product management — planning, design, scope, estimation, delivery, and global launch of a cloud-based Cybersecurity product. Led a cross-functional team of internal client employees and external vendors.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">OSS/BSS</span><span class="exp-tag">Cyber Security</span>
+            <span class="exp-tag">Global Launch</span><span class="exp-tag">SIP Products</span><span class="exp-tag">Backlog Mgmt</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-role">Assistant Consultant</div>
+            <div class="exp-date">Feb 2010 — Mar 2018</div>
+          </div>
+          <div class="exp-company">Tata Consultancy Services Ltd. · Mumbai, Pune & South Africa</div>
+          <ul class="exp-bullets">
+            <li><strong>Digital Transformation:</strong> Spearheaded Aadhaar-based e-KYC verification launch for an Indian telecom giant across <strong>23 circles pan India</strong>, achieving <strong>6 lakh+ transactions/day</strong>. Served as SPOC and liaison with UIDAI, COAI, and TRAI. Earned direct CEO appreciation.</li>
+            <li><strong>Automation Consulting:</strong> Analysed business processes, defined RPA value propositions, and assisted projects to POC level for Revenue Assurance in South Africa.</li>
+            <li><strong>Process Consulting:</strong> Worked as Business Analyst on the merger of two telecom companies in Johannesburg including COTS product analysis for Billing systems.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">e-KYC</span><span class="exp-tag">Aadhaar Integration</span>
+            <span class="exp-tag">RPA / Automation</span><span class="exp-tag">Process Consulting</span><span class="exp-tag">Telecom Merger</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="inner">
+      <div class="fade-in" style="margin-bottom:52px;">
+        <div class="section-eyebrow">Expertise</div>
+        <h2 class="section-title">Skills & Capabilities</h2>
+        <p class="section-desc">A versatile blend of product, analytical, and consulting skills built over 14+ years.</p>
+      </div>
+
+      <div class="skills-grid fade-in">
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div class="skill-card-icon">🎯</div>
+            <div class="skill-card-title">Product Management</div>
+          </div>
+          <div class="skill-rows">
+            <div class="skill-row"><div class="skill-meta"><span class="skill-name">Product Roadmapping</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+            <div class="skill-row"><div class="skill-meta"><span class="skill-name">Backlog Management</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+            <div class="skill-row"><div class="skill-meta"><span class="skill-name">User Story Writing</span><span class="skill-pct">92%</span></div><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+            <div class="skill-row"><div class="skill-meta"><span class="skill-name">Agile / Scrum</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div class="skill-card-icon">📐</div>
+            <div class="skill-card-title">Business Analysis</div>
+          </div>
+          <div class="skill-rows">
+            <div class="skill-row"><div class="skill-meta"><span class="skill-name">Requirements Gathering</span><span class="skill-pct">97%</span></div><div class="skill-bar"><div class="skill-fill" style="width:97%"></div></div></div>
+            <div class="skill-row"><div class="skill-meta"><span class="skill-name">Process Modelling / BPMN</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+            <div class="skill-row"><div class="skill-meta"><span class="skill-name">Solution Design</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+            <div class="skill-row"><div class="skill-meta"><span class="skill-name">CX / UX Design</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div class="skill-card-icon">🛠️</div>
+            <div class="skill-card-title">Tools & Technology</div>
+          </div>
+          <div class="skill-rows">
+            <div class="skill-row"><div class="skill-meta"><span class="skill-name">JIRA / Azure DevOps</span><span class="skill-pct">92%</span></div><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+            <div class="skill-row"><div class="skill-meta"><span class="skill-name">Power BI / Power Apps</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+            <div class="skill-row"><div class="skill-meta"><span class="skill-name">SQL / Python</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+            <div class="skill-row"><div class="skill-meta"><span class="skill-name">AI / LangChain / OpenAI</span><span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="competencies fade-in">
+        <div class="comp-title">Core Competencies</div>
+        <div class="comp-pills">
+          <span class="comp-pill">Product Owner</span>
+          <span class="comp-pill">Product Management</span>
+          <span class="comp-pill">Business Analysis</span>
+          <span class="comp-pill">IT & Business Consulting</span>
+          <span class="comp-pill">Digital Transformation</span>
+          <span class="comp-pill">Process Automation & Digitization</span>
+          <span class="comp-pill">Solution Design</span>
+          <span class="comp-pill">UX / CX Design</span>
+          <span class="comp-pill">Cross-Functional Coordination</span>
+          <span class="comp-pill">Client Relationship Management</span>
+          <span class="comp-pill">MS Visio · ARIS · Draw.io</span>
+          <span class="comp-pill">Confluence · RPA · MS Office</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="inner">
+      <div class="fade-in" style="margin-bottom:52px;">
+        <div class="section-eyebrow">Recognition</div>
+        <h2 class="section-title">Accomplishments</h2>
+      </div>
+      <div class="ach-grid fade-in">
+        <div class="ach-card">
+          <div class="ach-icon">⭐</div>
+          <div>
+            <div class="ach-title">Two Vodafone Stars Awards</div>
+            <div class="ach-body">Recognised for pioneering marketing strategies, expanding outreach across diverse OpCos, and driving impactful project initiatives at Vodafone _VOIS.</div>
+          </div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-icon">🏆</div>
+          <div>
+            <div class="ach-title">Bravo Award — Tech Mahindra</div>
+            <div class="ach-body">Awarded for the successful delivery and European launch of the GSIP voice product for a global tier-1 telecom client.</div>
+          </div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-icon">👏</div>
+          <div>
+            <div class="ach-title">Pat On The Back — Tech Mahindra</div>
+            <div class="ach-body">Recognised for the successful delivery and global-scale launch of a cloud-based Cyber Security product.</div>
+          </div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-icon">🎖️</div>
+          <div>
+            <div class="ach-title">CEO Appreciation — TCS</div>
+            <div class="ach-body">Personal appreciation from the CEO of a leading Indian telecom giant for the successful Aadhaar-based e-KYC launch across 23 circles pan India.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INITIATIVES -->
+  <section id="initiatives">
+    <div class="inner">
+      <div class="fade-in" style="margin-bottom:52px;">
+        <div class="section-eyebrow">Innovation</div>
+        <h2 class="section-title">Personal Initiatives</h2>
+        <p class="section-desc">Hands-on explorations at the frontier of AI and modern development practices.</p>
+      </div>
+      <div class="init-grid fade-in">
+        <div class="init-card">
+          <div class="init-card-top">
+            <div class="init-icon-box">🤖</div>
+            <div class="init-card-name">AI Document Chatbot (POC)</div>
+          </div>
+          <div class="init-card-tag">LangChain · OpenAI · Python</div>
+          <p>Developed an AI-enabled Chatbot proof-of-concept using LangChain and the OpenAI ChatGPT API to enable conversational querying across documents — exploring RAG-based retrieval architectures.</p>
+        </div>
+        <div class="init-card">
+          <div class="init-card-top">
+            <div class="init-icon-box">📊</div>
+            <div class="init-card-name">Diagram As A Code (POC)</div>
+          </div>
+          <div class="init-card-tag">Process Design · Automation</div>
+          <p>Built a POC script template to auto-generate process diagrams following the "Diagram as a Code" paradigm — enabling version-controlled, reproducible process flows and reducing manual effort.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="inner">
+      <div class="fade-in" style="margin-bottom:52px;">
+        <div class="section-eyebrow">Credentials</div>
+        <h2 class="section-title">Certifications</h2>
+      </div>
+      <div class="cert-grid fade-in">
+        <div class="cert-card">
+          <div class="cert-icon">☁️</div>
+          <div class="cert-name">Google Cloud Digital Leader</div>
+          <div class="cert-issuer">Google Cloud · GCP</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">📜</div>
+          <div class="cert-name">Certified Scrum Product Owner (CSPO)</div>
+          <div class="cert-issuer">Scrum Alliance</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🏛️</div>
+          <div class="cert-name">McKinsey Leadership Essentials</div>
+          <div class="cert-issuer">McKinsey & Company</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">📗</div>
+          <div class="cert-name">Lean Six Sigma Green Belt</div>
+          <div class="cert-issuer">KPMG</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="inner">
+      <div class="fade-in" style="margin-bottom:52px;">
+        <div class="section-eyebrow">Education</div>
+        <h2 class="section-title">Academic Background</h2>
+      </div>
+      <div class="edu-grid fade-in">
+        <div class="edu-card">
+          <div class="edu-degree">PGDM — IM & Marketing</div>
+          <div class="edu-school">Management Development Institute, Gurgaon</div>
+          <div class="edu-year">2016–2017 · CGPA 6.96/10</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">Exchange Program</div>
+          <div class="edu-school">École Supérieure De Commerce De Paris (ESCP Europe), Paris</div>
+          <div class="edu-year">International Exchange · France</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">B.Tech — Electronics & Electrical Engg.</div>
+          <div class="edu-school">KIIT University, Bhubaneswar</div>
+          <div class="edu-year">2005–2009 · CGPA 8.56/10</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="inner">
+      <div class="fade-in" style="margin-bottom:52px;">
+        <div class="section-eyebrow">Contact</div>
+        <h2 class="section-title">Let's connect.</h2>
+        <p class="section-desc">
+          Open to Product Manager roles, consulting conversations, and collaborations.
+          Reach out through any of the channels below.
+        </p>
+      </div>
+      <div class="contact-links fade-in" style="max-width:560px;">
+        <a href="mailto:animesh.kumar87@gmail.com" class="contact-link">
+          <div class="cl-icon">✉️</div>
+          <div><div class="cl-type">Email</div><div class="cl-val">animesh.kumar87@gmail.com</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/animesh-kumar-6610b96/" target="_blank" class="contact-link">
+          <div class="cl-icon">💼</div>
+          <div><div class="cl-type">LinkedIn</div><div class="cl-val">animesh-kumar-6610b96</div></div>
+        </a>
+        <a href="tel:+919820571851" class="contact-link">
+          <div class="cl-icon">📞</div>
+          <div><div class="cl-type">Phone</div><div class="cl-val">+91 98205 71851</div></div>
+        </a>
+        <a href="#" class="contact-link">
+          <div class="cl-icon">📄</div>
+          <div><div class="cl-type">Resume</div><div class="cl-val">Download PDF →</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Animesh Kumar</div>
+    <div class="footer-copy">© 2025 · Bengaluru, India · All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-in on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+    // Skill bar animation trigger
+    const skillIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.skill-fill').forEach(b => {
+            b.style.animationPlayState = 'running';
+          });
+        }
+      });
+    }, { threshold: 0.25 });
+    document.querySelectorAll('.skill-card').forEach(c => {
+      c.querySelectorAll('.skill-fill').forEach(b => b.style.animationPlayState = 'paused');
+      skillIO.observe(c);
+    });
+
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Form submit feedback
+    document.getElementById('formSubmit').addEventListener('click', function() {
+      this.textContent = '✓ Message Sent!';
+      this.style.background = 'var(--accent3)';
+      setTimeout(() => {
+        this.textContent = 'Send Message →';
+        this.style.background = '';
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
